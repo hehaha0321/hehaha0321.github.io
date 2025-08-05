@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态详情 - 千山瑞的个人主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            background-color: white;
+        }
+
+        /* 量子背景容器 */
+        .quantum-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        /* 量子粒子 */
+        .quantum-particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+
+        /* 顶部导航栏 */
+        .top-nav {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .top-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .top-nav a:hover {
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        /* 主要内容区域 */
+        .main-content {
+            padding: 100px 10% 50px;
+            min-height: 100vh;
+        }
+
+        .update-detail {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .update-detail h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .update-detail h2 {
+            color: #444;
+            margin: 20px 0 10px;
+        }
+
+        .update-detail p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .update-detail ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .update-detail li {
+            margin-bottom: 10px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .back-to-home {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            color: #333;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-home:hover {
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .back-to-updates {
+            display: inline-block;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .back-to-updates:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .top-nav {
+                left: 10px;
+                top: 10px;
+            }
+            
+            .top-nav a {
+                font-size: 14px;
+                padding: 6px 12px;
+            }
+            
+            .main-content {
+                padding: 80px 5% 30px;
+            }
+            
+            .update-detail {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .top-nav ul {
+                gap: 10px;
+            }
+            
+            .top-nav a {
+                font-size: 12px;
+                padding: 5px 10px;
+            }
+        }
+        
+        /* 量子连接线 */
+        .quantum-connection {
+            position: absolute;
+            background: rgba(100, 200, 255, 0.6);
+            transform-origin: 0 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <!-- 量子背景特效 -->
+    <div class="quantum-background" id="quantumBackground"></div>
+    
+    <!-- 顶部导航栏 -->
+    <nav class="top-nav">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="index.html#updates">近期动态</a></li>
+            <li><a href="about.html">关于</a></li>
+            <li><a href="https://github.com/hehaha0321" target="_blank">GitHub</a></li>
+        </ul>
+    </nav>
+    
+    <!-- 主要内容 -->
+    <div class="main-content">
+        <div class="update-detail">
+            <h1>开始创建个人主页</h1>
+            <p>今天我创建了自己的个人主页，这是我的第一个动态！</p>
+            
+            <h2>通过AI创建个人网站的完整过程</h2>
+            <p>这是我通过AI辅助创建个人网站的完整过程：</p>
+            
+            <ul>
+                <li><strong>需求描述阶段：</strong>首先，我向AI描述了我想要的个人主页的基本结构和功能需求</li>
+                <li><strong>代码生成阶段：</strong>AI帮我生成了HTML、CSS和JavaScript代码，包括响应式设计和粒子特效</li>
+                <li><strong>迭代优化阶段：</strong>我们一起迭代优化代码，修复了各种问题，如粒子特效显示、页面布局等</li>
+                <li><strong>页面扩展阶段：</strong>AI还帮我创建了独立的关于页面，并优化了导航结构</li>
+                <li><strong>部署指导阶段：</strong>最后，AI指导我如何将网站部署到GitHub Pages上</li>
+            </ul>
+            
+            <h2>学习心得</h2>
+            <p>使用AI创建网站的过程让我学到了很多前端开发知识，也体验到了AI在编程领域的强大能力。通过与AI的协作，我不仅完成了个人网站的创建，还深入了解了HTML、CSS和JavaScript的工作原理。</p>
+            
+            <h2>技术收获</h2>
+            <p>在项目开发过程中，我掌握了以下技术要点：</p>
+            <ul>
+                <li>响应式网页设计，适配不同屏幕尺寸</li>
+                <li>CSS动画和JavaScript特效实现</li>
+                <li>页面布局和视觉设计原则</li>
+                <li>Git版本控制和GitHub Pages部署</li>
+            </ul>
+            
+            <a href="index.html#updates" class="back-to-updates">← 返回动态列表</a>
+        </div>
+    </div>
+    
+    <!-- 返回首页链接 -->
+    <a href="index.html" class="back-to-home">↑ 返回首页</a>
+
+    <script>
+        // 创建量子特效
+        document.addEventListener('DOMContentLoaded', function() {
+            const quantumBackground = document.getElementById('quantumBackground');
+            const particleCount = 50;
+            const particles = [];
+            const connections = [];
+            
+            // 创建粒子
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('quantum-particle');
+                
+                // 随机大小 (3px - 10px)
+                const size = Math.random() * 7 + 3;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // 更明亮的蓝紫色调
+                const hue = Math.random() * 60 + 180; // 蓝紫色范围
+                particle.style.backgroundColor = `hsla(${hue}, 100%, 80%, ${Math.random() * 0.7 + 0.3})`;
+                
+                // 随机位置
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                particle.style.left = `${x}px`;
+                particle.style.top = `${y}px`;
+                
+                quantumBackground.appendChild(particle);
+                
+                // 存储粒子信息
+                particles.push({
+                    element: particle,
+                    x: x,
+                    y: y,
+                    vx: (Math.random() - 0.5) * 1.5, // 更快的速度
+                    vy: (Math.random() - 0.5) * 1.5,
+                    size: size
+                });
+            }
+            
+            // 创建连接线
+            function createConnections() {
+                // 清除旧的连接线
+                connections.forEach(conn => {
+                    if (conn.element.parentNode) {
+                        conn.element.parentNode.removeChild(conn.element);
+                    }
+                });
+                connections.length = 0;
+                
+                // 创建新的连接线
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const p1 = particles[i];
+                        const p2 = particles[j];
+                        
+                        // 计算距离
+                        const dx = p1.x - p2.x;
+                        const dy = p1.y - p2.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        // 如果距离小于阈值，创建连接线（扩大连接范围）
+                        if (distance < 200) {
+                            const connection = document.createElement('div');
+                            connection.classList.add('quantum-connection');
+                            
+                            // 设置连接线样式
+                            connection.style.width = `${distance}px`;
+                            connection.style.left = `${p1.x}px`;
+                            connection.style.top = `${p1.y}px`;
+                            
+                            // 计算角度
+                            const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+                            connection.style.transform = `rotate(${angle}deg)`;
+                            
+                            // 设置更明显的透明度
+                            const opacity = (200 - distance) / 200 * 0.8 + 0.2;
+                            connection.style.backgroundColor = `rgba(100, 200, 255, ${opacity})`;
+                            
+                            quantumBackground.appendChild(connection);
+                            
+                            connections.push({
+                                element: connection,
+                                p1: p1,
+                                p2: p2
+                            });
+                        }
+                    }
+                }
+            }
+            
+            // 动画循环
+            function animate() {
+                // 更新粒子位置
+                particles.forEach(particle => {
+                    particle.x += particle.vx;
+                    particle.y += particle.vy;
+                    
+                    // 边界检测和反弹
+                    if (particle.x <= 0 || particle.x >= window.innerWidth) {
+                        particle.vx *= -1;
+                    }
+                    if (particle.y <= 0 || particle.y >= window.innerHeight) {
+                        particle.vy *= -1;
+                    }
+                    
+                    // 应用新位置
+                    particle.element.style.left = `${particle.x}px`;
+                    particle.element.style.top = `${particle.y}px`;
+                });
+                
+                // 更新连接线
+                createConnections();
+                
+                // 继续动画循环
+                requestAnimationFrame(animate);
+            }
+            
+            // 开始动画
+            animate();
+            
+            // 窗口大小调整时更新粒子位置
+            window.addEventListener('resize', () => {
+                particles.forEach(particle => {
+                    // 确保粒子在窗口范围内
+                    particle.x = Math.max(0, Math.min(window.innerWidth, particle.x));
+                    particle.y = Math.max(0, Math.min(window.innerHeight, particle.y));
+                });
+            });
+        });
+    </script>
+</body>
+</html>
